@@ -39,7 +39,7 @@ namespace CsvToObjectTests
             var lines = new string[]
             {
                 "Brand,Model,Manufacture Date",
-                "Open,Astra,Dec.15",
+                "Opel,Astra,Dec.15",
                 "BMW,116,Jun.14"
             };
 
