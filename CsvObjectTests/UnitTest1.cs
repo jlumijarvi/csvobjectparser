@@ -39,15 +39,15 @@ namespace CsvToObjectTests
             var lines = new string[]
             {
                 "Brand,Model,Manufacture Date",
-                "Open,Astra,Dec.15",
-                "BMW,116,Jun.14"
+                "Opel,Astra,\"Dec,15\"",
+                "BMW,116,\"Jun,14\""
             };
 
             File.WriteAllLines(fn, lines);
 
             var parser = new CsvObjectParser()
             {
-                Separator = ",",
+                Separator = ',',
                 Mapper = new CarPropertyMapper()
             };
 

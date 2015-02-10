@@ -14,12 +14,12 @@ namespace CsvToObjectLib
 
     public class CsvObjectParser
     {
-        public string Separator { get; set; }
+        public char Separator { get; set; }
         public ICsvPropertyMapper Mapper { get; set; }
 
         public CsvObjectParser()
         {
-            Separator = ",";
+            Separator = ',';
         }
 
         public async Task<IEnumerable<T>> GetObjects<T>(IEnumerable<string> csvFiles) where T : class
@@ -38,7 +38,8 @@ namespace CsvToObjectLib
                 {
                     while (!tr.EndOfStream)
                     {
-                        var values = (await tr.ReadLineAsync()).Split(Separator.ToCharArray());
+                        var line = (await tr.ReadLineAsync());
+                        var values = line.CsvSplit(Separator);
                         if (ind++ == 0) // header
                         {
                             csvHeader = values.Select(it => Regex.Replace(it, @"\W", string.Empty));
