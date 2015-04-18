@@ -1,3 +1,3 @@
 # csvobjectparser
 
-Simple CSV to object parser
+Simple .NET CSV to object parser
